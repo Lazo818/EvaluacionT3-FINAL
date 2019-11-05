@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container">
+
+		<h1>Datos del Cliente Registrado</h1>
+		
+		<form th:action="@{/plato/savepedido}" th:object="${pedido}" 
+					method="post">
+					
+					<p>Id: <span th:text = "${usuario.id}" ></span></p>
+					<p>Username: <span th:text = "${usuario.username}" ></span></p>
+					
+					<h1>     Informacion del Plato   </h1>
+					<h1></h1>
+					<h1></h1>
+					<h1>---------------------------------------------------------</h1>
+					
+					<h2>Nombre de Plato: <span  th:text="${plato.nombre_plato}" ></span></h2>
+					<h2>Precio de Plato: <span  th:text="${plato.precio_plato}" ></span></h2>
+					<hr>
+					<h1> Desea este plato? </h1>
+					
+					<button type="submit" class="btn btn-info">
+						<i class="fas fa-save"></i> CONFIRMAR
+					</button>
+					<a th:href="@{/plato}" class="btn btn-danger"> 
+						<i class="fas fa-undo"></i> RECHAZAR 
+					</a>
+				</form>
+		
+
+	</div>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
